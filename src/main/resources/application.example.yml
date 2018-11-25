@@ -1,3 +1,4 @@
+# EXAMPLE of application.yml file, just rename it to application.yml and set field to correct values
 spring:
   application:
     name: org.mpo.newstracker
