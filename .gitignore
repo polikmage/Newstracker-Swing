@@ -1,5 +1,9 @@
 # Untracked files:
-src/main/resources/test.yml
+src/main/resources/application.yml
+
+#.idea files
+.idea/*
+
 # Compiled class file
 *.class
 
