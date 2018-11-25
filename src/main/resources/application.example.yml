@@ -1,0 +1,116 @@
+spring:
+  application:
+    name: org.mpo.newstracker
+    #mvc:
+    # view:
+    #  prefix: /WEB-INF/jsp/
+    #   suffix: .jsp
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/news_tracker?useSSL=FALSE
+    #url: jdbc:mysql://mysql-standalone:3306/news_tracker?useSSL=FALSE&allowPublicKeyRetrieval=true
+    #url: jdbc:h2:file:~/devdb
+    username: root
+    password: root
+    #username: sa
+    #password: password
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+  # h2:
+  #console:
+  # enabled: true
+  # path: /h2
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: here_insert_google_email_sender
+    password: here_insert_password_to_email_sender
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+server:
+  port: 8082
+logging:
+  #file: org.mpo.foodtracker.log
+  #max-size: 10MB
+  #max-history: 5
+  pattern:
+    console: "TID: [%d] %level [%thread] %logger{36} - %msg%n"
+    #file: "TID: [%d] %level [%thread] %logger{36} - %msg%n"
+  level:
+    org.mpo.newstracker: DEBUG
+    org.hibernate.SQL: INFO
+news-admin:
+  max-items: 20
+  username: admin
+  password: admin
+google-translator:
+  script-url: here_insert_google_translate_script_url
+google-api-news:
+  api-key: here_insert_google_news_api_key
+  host-url: here_insert_googlenews_host_url
+google-web-news:
+  host-url: https://news.google.com
+  search-endpoint: /search
+  countryMap:
+    CZ:
+      country: Czechia
+      hl: cs
+      gl: CZ
+      ceid: CZ:cs
+    SK:
+      country: Slovakia
+      hl: sk
+      gl: SK
+      ceid: SK:sk
+    PL:
+      country: Poland
+      hl: pl
+      gl: PL
+      ceid: PL:pl
+    HU:
+      country: Hungary
+      hl: hu
+      gl: HU
+      ceid: HU:hu
+    AT:
+      country: Austria
+      hl: de
+      gl: AT
+      ceid: AT:de
+    DE:
+      country: Germany
+      hl: de
+      gl: DE
+      ceid: DE:de
+    GB:
+      country: United Kingdom
+      hl: en-GB
+      gl: GB
+      ceid: GB:en
+    IT:
+      country: Italy
+      hl: it
+      gl: IT
+      ceid: IT:it
+    WORLD:
+      country: World
+      hl: en
+      gl: US
+      ceid: US:en
+    RU:
+      country: Russia
+      hl: ru
+      gl: RU
+      ceid: RU:ru
+
+
+
