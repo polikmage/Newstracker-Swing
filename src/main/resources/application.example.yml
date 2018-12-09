@@ -7,14 +7,27 @@ spring:
     #  prefix: /WEB-INF/jsp/
     #   suffix: .jsp
   datasource:
-    driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/news_tracker?useSSL=FALSE
+    ##mysql local connection
+    #driverClassName: com.mysql.jdbc.Driver
+    #url: jdbc:mysql://localhost:3306/news_tracker?useSSL=FALSE
+    #username: root
+    #password: root
+
+    ##mysql docker connection
     #url: jdbc:mysql://mysql-standalone:3306/news_tracker?useSSL=FALSE&allowPublicKeyRetrieval=true
-    #url: jdbc:h2:file:~/devdb
-    username: root
-    password: root
     #username: sa
     #password: password
+
+    ##h2 in memory db
+    name: newstracker
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+    #spring.datasource.initialize=false
+    #spring.datasource.url=jdbc:h2:file:~/yourdbname;DB_CLOSE_ON_EXIT=FALSE;IFEXISTS=TRUE;DB_CLOSE_DELAY=-1;
+    #
+    #spring.jpa.hibernate.ddl-auto = update
   jpa:
     hibernate:
       ddl-auto: create-drop
@@ -40,15 +53,15 @@ spring:
 server:
   port: 8082
 logging:
-  #file: org.mpo.foodtracker.log
-  #max-size: 10MB
-  #max-history: 5
+  file: org.mpo.newstracker.log
+  max-size: 10MB
+  max-history: 5
   pattern:
     console: "TID: [%d] %level [%thread] %logger{36} - %msg%n"
-    #file: "TID: [%d] %level [%thread] %logger{36} - %msg%n"
+    file: "TID: [%d] %level [%thread] %logger{36} - %msg%n"
   level:
     org.mpo.newstracker: DEBUG
-    org.hibernate.SQL: INFO
+    #org.hibernate.SQL: INFO
 news-admin:
   max-items: 20
   username: admin
