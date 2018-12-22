@@ -70,7 +70,7 @@ google-translator:
   script-url: here_insert_google_translate_script_url
 google-api-news:
   api-key: here_insert_google_news_api_key
-  host-url: here_insert_googlenews_host_url
+  host-url: https://newsapi.org
 google-web-news:
   host-url: https://news.google.com
   search-endpoint: /search
