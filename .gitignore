@@ -1,5 +1,6 @@
 # Untracked files:
 src/main/resources/application.yml
+src/main/resources/application-toDelete.yml
 
 #.idea files
 .idea\compiler.xml
