@@ -55,7 +55,7 @@ public class WatchdogAutomatedArticleProcessor {
     //@Scheduled(fixedRate = 2000)
 
     //@Scheduled(cron = "*/10 * * * * *") //0 10 * * *
-    //@Scheduled(cron = "0 14 * * * *")
+    @Scheduled(cron = "0 00 * * * *")
     public void sheduledWatchdogTask() throws InterruptedException, ExecutionException, CountryNotFoundException, IOException, BackendException, TranslatorException, NoArticlesFoundException {
         //SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
         //log.info("sheduledWatchdogTask: The time is now {}", dateFormat.format(new Date()));

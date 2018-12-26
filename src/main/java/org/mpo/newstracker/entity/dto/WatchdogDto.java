@@ -10,6 +10,7 @@ public class WatchdogDto {
     private String country;
     private LocalDateTime dateCreated;
     private boolean translate;
+    private int id;
     //private int userId;
 
 
@@ -22,6 +23,7 @@ public class WatchdogDto {
         this.country = watchdogDao.getCountry();
         this.dateCreated = watchdogDao.getDateCreated();
         this.translate = watchdogDao.isTranslate();
+        this.id=watchdogDao.getId();
     }
 
     public WatchdogDto(String keywords, String email, String country, LocalDateTime dateCreated,boolean translate) {
@@ -70,5 +72,13 @@ public class WatchdogDto {
 
     public void setTranslate(boolean translate) {
         this.translate = translate;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

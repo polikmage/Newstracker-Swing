@@ -3,6 +3,7 @@ package org.mpo.newstracker.service;
 import org.mpo.newstracker.entity.dao.UserDao;
 import org.mpo.newstracker.entity.dao.WatchdogDao;
 import org.mpo.newstracker.entity.dto.WatchdogDto;
+import org.mpo.newstracker.exception.NoWatchdogFoundException;
 import org.mpo.newstracker.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,11 +49,11 @@ public class WatchdogService {
         userDao.setWatchdogs(watchdogDaoList);
         userRepository.save(userDao);
         log.info("watchdog: " + Arrays.toString(userDao.getWatchdogs().toArray()) + "was added");
-        return getWatchdogsForAuthorizedUser(username);
+        return getWatchdogs(username);
 
     }
 
-    public ResponseEntity<WatchdogDto[]> getWatchdogsForAuthorizedUser(String username) {
+    public ResponseEntity<WatchdogDto[]> getWatchdogs(String username) {
         UserDao userDao = userRepository.findByUsername(username);
         WatchdogDao [] watchdogDaos= userDao.getWatchdogs().stream().toArray(WatchdogDao[]::new);
         WatchdogDto[] watchdogDtos = new WatchdogDto[watchdogDaos.length];
@@ -64,5 +65,26 @@ public class WatchdogService {
                 //.header(SESSION_HEADER, "12345")
                 .body(watchdogDtos);
 
+    }
+    public ResponseEntity<Integer> deleteWatchdog(int watchdogId, String username ) throws NoWatchdogFoundException {
+        UserDao userDao = userRepository.findByUsername(username);
+        List<WatchdogDao>  watchdogDaoList= userDao.getWatchdogs();
+        WatchdogDao searchedWatchdog = watchdogDaoList.stream()
+                .filter(watchdogDao-> watchdogId==watchdogDao.getId())
+                .findFirst()
+                .orElse(null);
+        if(searchedWatchdog==null){
+            throw new NoWatchdogFoundException(
+                    "No watchdog with id: "+ watchdogId+" found", new Throwable(),400);
+        }
+        watchdogDaoList.remove(searchedWatchdog);
+        userDao.setWatchdogs(watchdogDaoList);
+        userRepository.save(userDao);
+        log.info("watchdog with id: " + searchedWatchdog.getId() + " was removed");
+
+
+        return ResponseEntity.status(200)
+                //.header(SESSION_HEADER, "12345")
+                .body(searchedWatchdog.getId());
     }
 }

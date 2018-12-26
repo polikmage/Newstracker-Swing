@@ -48,6 +48,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //ZASADNI, u exact match  pro sign_up musi byt cela cesta vcetne v1
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .antMatchers("/v1/sign_up").permitAll()
+                .antMatchers("/actuator/**").permitAll()
+                .antMatchers("/actuator").permitAll()
                 //.antMatchers("/h2").permitAll()
                 //.antMatchers("/h2/**").permitAll()
                 .antMatchers("/v1/admin/**").hasRole("ADMIN")//.hasRole("ADMIN")

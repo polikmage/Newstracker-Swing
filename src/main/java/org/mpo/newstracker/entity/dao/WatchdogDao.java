@@ -103,4 +103,17 @@ public class WatchdogDao {
     public void setTranslate(boolean translate) {
         this.translate = translate;
     }
+
+    @Override
+    public String toString() {
+        return "WatchdogDao{" +
+                "id=" + id +
+                ", keywords='" + keywords + '\'' +
+                ", email='" + email + '\'' +
+                ", userId=" + userId +
+                ", dateCreated=" + dateCreated +
+                ", country='" + country + '\'' +
+                ", translate=" + translate +
+                '}';
+    }
 }

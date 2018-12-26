@@ -4,10 +4,7 @@ import org.mpo.newstracker.entity.NewsEntity;
 import org.mpo.newstracker.entity.dto.CommonResponseDto;
 import org.mpo.newstracker.entity.dto.UserDto;
 import org.mpo.newstracker.entity.dto.WatchdogDto;
-import org.mpo.newstracker.exception.BackendException;
-import org.mpo.newstracker.exception.CountryNotFoundException;
-import org.mpo.newstracker.exception.NoArticlesFoundException;
-import org.mpo.newstracker.exception.TranslatorException;
+import org.mpo.newstracker.exception.*;
 import org.mpo.newstracker.service.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -99,7 +96,15 @@ public class ApiRestController {
         //log.info("first method: " + ((UserDetails) principal).getUsername());
         final UserDetails currentUser = (UserDetails) ((Authentication) principal).getPrincipal();
         log.info("logged in username: "+currentUser.getUsername());
-        return watchdogService.getWatchdogsForAuthorizedUser(currentUser.getUsername());
+        return watchdogService.getWatchdogs(currentUser.getUsername());
+    }
+
+    @DeleteMapping("/user/watchdog/{id}")
+    public ResponseEntity<Integer> deleteWatchdog(@PathVariable(name="id") int id, Principal principal) throws NoWatchdogFoundException {
+        //log.info("first method: " + ((UserDetails) principal).getUsername());
+        final UserDetails currentUser = (UserDetails) ((Authentication) principal).getPrincipal();
+        log.info("logged in username: "+currentUser.getUsername());
+        return watchdogService.deleteWatchdog(id,currentUser.getUsername());
     }
 
   /*  @GetMapping("/admin/user")
