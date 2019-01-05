@@ -27,6 +27,8 @@ POST /login -> After sign up, user can login, to log in there is needed to send 
 Then the app responds with bearer JWT token which must be present in each /user/* request
 
 #Docker Compose
+
+
 version: '2'
 services:
   mysql:
