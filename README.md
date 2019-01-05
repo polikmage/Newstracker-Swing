@@ -25,3 +25,43 @@ POST /login -> After sign up, user can login, to log in there is needed to send 
 }
 
 Then the app responds with bearer JWT token which must be present in each /user/* request
+
+#Docker Compose
+version: '2'
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: mysql-docker
+    environment:
+      MYSQL_DATABASE: "news_tracker"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "password"
+      MYSQL_ROOT_PASSWORD: "Heslo123!"
+    networks:
+      news-network:
+        ipv4_address: 172.18.0.4
+  frontend:
+    image: markopola/newstracker-frontend:1.1-beta
+    container_name: newstracker-frontend
+    ports:
+     - "8080:80"
+    networks:
+      news-network:
+        ipv4_address: 172.18.0.2
+  backend:
+    image: markopola/newstracker-backend:1.1-beta
+    container_name: newstracker_backend
+    ports:
+     - "8082:8082"
+    volumes: 
+     - ./application.yml:/app/application.yml
+    networks:
+      news-network:
+        ipv4_address: 172.18.0.3
+networks:
+  news-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
+
