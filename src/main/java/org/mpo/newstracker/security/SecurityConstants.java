@@ -1,3 +1,4 @@
+/*
 package org.mpo.newstracker.security;
 
 public class SecurityConstants {
@@ -6,3 +7,4 @@ public class SecurityConstants {
    static final String HEADER_STRING="Authorization";
    static final Long EXPIRATION_TIME=86400L;
 }
+*/

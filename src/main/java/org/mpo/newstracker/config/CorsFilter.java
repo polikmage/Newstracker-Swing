@@ -1,3 +1,4 @@
+/*
 package org.mpo.newstracker.config;
 
 import org.slf4j.Logger;
@@ -42,3 +43,4 @@ public class CorsFilter extends OncePerRequestFilter {
     }
 
 }
+*/

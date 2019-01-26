@@ -1,3 +1,4 @@
+/*
 package org.mpo.newstracker.config;
 
 import org.mpo.newstracker.security.JwtAuthenticationFilter;
@@ -62,15 +63,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 
+*/
 /*    //@Bean
     public JwtAuthenticationFilter getJWTAuthenticationFilter() throws Exception {
         final JwtAuthenticationFilter filter = new JwtAuthenticationFilter(authenticationManager());
         //TODO get login url from configuration file
         filter.setFilterProcessesUrl("/v1/login");
         return filter;
-    }*/
+    }*//*
+
 
 }
 
 
 
+*/

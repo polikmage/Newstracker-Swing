@@ -1,3 +1,4 @@
+/*
 package org.mpo.newstracker.service;
 
 import org.mpo.newstracker.entity.dao.UserDao;
@@ -32,11 +33,13 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-       /* org.mpo.newstracker.entity.dao.UserDao daoUser = userRepository.findByUsername(username);
+       */
+/* org.mpo.newstracker.entity.dao.UserDao daoUser = userRepository.findByUsername(username);
         if (daoUser==null){
             throw new UsernameNotFoundException(username);
         }
-        return new UserDao(daoUser.getUsername(),daoUser.getPassword(), AuthorityUtils.createAuthorityList(daoUser.getRole()));*/
+        return new UserDao(daoUser.getUsername(),daoUser.getPassword(), AuthorityUtils.createAuthorityList(daoUser.getRole()));*//*
+
 
         log.info("search for user: "+username);
         //need to put {noop} because of some password encription error
@@ -59,3 +62,4 @@ public class CustomUserDetailsService implements UserDetailsService {
     }
 
 }
+*/

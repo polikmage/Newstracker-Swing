@@ -1,3 +1,4 @@
+/*
 package org.mpo.newstracker.security;
 
 import com.fasterxml.jackson.core.JsonParser;
@@ -71,3 +72,4 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         response.addHeader(HEADER_STRING,TOKEN_PREFIX + token);
     }
 }
+*/

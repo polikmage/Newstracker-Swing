@@ -1,3 +1,4 @@
+/*
 package org.mpo.newstracker.controller;
 
 import org.mpo.newstracker.entity.NewsEntity;
@@ -84,13 +85,15 @@ public class ApiRestController {
         return watchdogService.setWatchdog(watchdogDto,currentUser.getUsername());
     }
 
+*/
 /*    @GetMapping("/user/{username}/watchdog")
     public ResponseEntity<> setWatchdog(@PathVariable(name = "username")  String username,  Principal principal){
         //log.info("first method: " + ((UserDetails) principal).getUsername());
         final UserDetails currentUser = (UserDetails) ((Authentication) principal).getPrincipal();
         log.info("logged in username: "+currentUser.getUsername());
         return watchdogService.getWatchdog(currentUser.getUsername());
-    }*/
+    }*//*
+
     @GetMapping("/user/watchdog")
     public ResponseEntity<WatchdogDto[]> setWatchdog(Principal principal){
         //log.info("first method: " + ((UserDetails) principal).getUsername());
@@ -107,11 +110,13 @@ public class ApiRestController {
         return watchdogService.deleteWatchdog(id,currentUser.getUsername());
     }
 
-  /*  @GetMapping("/admin/user")
+  */
+/*  @GetMapping("/admin/user")
     public ResponseEntity<> getUsers(){
         return userService.getUsers();
     }
-*/
+*//*
+
 
     @PostMapping("/sign_up")
     public ResponseEntity<CommonResponseDto> registerUser(@RequestBody UserDto userDto){
@@ -120,3 +125,4 @@ public class ApiRestController {
 
 
 }
+*/

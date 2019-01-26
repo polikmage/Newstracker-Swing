@@ -1,3 +1,4 @@
+/*
 package org.mpo.newstracker.controller;
 
 import io.jsonwebtoken.ExpiredJwtException;
@@ -60,7 +61,8 @@ public class ExceptionHandlingController {
         log.warn(e.getMessage());
         return new ResponseEntity<>(exceptionResponse, HttpStatus.valueOf(exceptionResponse.getStatusCode()));
     }
-    @ExceptionHandler(UsernameNotFoundException.class)
+*/
+/*    @ExceptionHandler(UsernameNotFoundException.class)
     public ResponseEntity<ExceptionResponse> handleUsernameNotFoundException(UsernameNotFoundException e){
         ExceptionResponse exceptionResponse = new ExceptionResponse(HttpStatus.NOT_FOUND.value(),e.getMessage());
         //exceptionResponse.setStatusCode(e.getStatusCode());
@@ -75,5 +77,7 @@ public class ExceptionHandlingController {
         //exceptionResponse.setStatusCode(e.getStatusCode());
         log.warn(e.getMessage());
         return new ResponseEntity<>(exceptionResponse, HttpStatus.valueOf(exceptionResponse.getStatusCode()));
-    }
+    }*//*
+
 }
+*/

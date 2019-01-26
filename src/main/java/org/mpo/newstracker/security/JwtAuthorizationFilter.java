@@ -1,3 +1,4 @@
+/*
 package org.mpo.newstracker.security;
 
 import io.jsonwebtoken.ExpiredJwtException;
@@ -56,7 +57,10 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
         return  username!=null ? new UsernamePasswordAuthenticationToken(userDetails,null,userDetails.getAuthorities()) : null;
     }
 
-    /*public JwtAuthorizationFilter(AuthenticationManager authenticationManager, AuthenticationEntryPoint authenticationEntryPoint) {
+    */
+/*public JwtAuthorizationFilter(AuthenticationManager authenticationManager, AuthenticationEntryPoint authenticationEntryPoint) {
         super(authenticationManager, authenticationEntryPoint);
-    }*/
+    }*//*
+
 }
+*/
