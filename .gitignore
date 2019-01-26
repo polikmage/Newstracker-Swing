@@ -3,14 +3,7 @@ src/main/resources/application.yml
 src/main/resources/application-toDelete.yml
 
 #.idea files
-.idea\compiler.xml
-.idea\encodings.xml
-.idea\misc.xml
-.idea\newstracker_backend.iml
-.idea\uiDesigner.xml
-.idea\vcs.xml
-.idea\workspace.xml
-
+\.idea
 # Compiled class file
 *.class
 
